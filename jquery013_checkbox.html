@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      //console.log(this);  //Window
+      $(document).ready(function () {
+        //console.log(this); //#document
+        $("#check_all").click(() => {
+          $(".chk").prop("checked", $("#check_all").prop("checked"));
+        });
+
+        $("button").click(() => {
+          //방법 1
+          //   $(".chk").each((index, element) => {
+          //     if ($(element).prop("checked"))
+          //       $(element).parent().parent().remove();
+          //   });
+
+          //방법 2
+          // $(".chk:checked").parent().parent().remove();
+          //방법 3
+          $(".chk:checked").parents("tr").remove();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button>삭제</button>
+    <div class="wrap">
+      <table>
+        <tr>
+          <th>
+            <input type="checkbox" class="check_all" id="check_all" />
+            <label for="check_all">전체선택</label>
+          </th>
+          <th>제목</th>
+          <th>작성자</th>
+        </tr>
+
+        <tr>
+          <td><input type="checkbox" class="chk" /></td>
+          <td>title1</td>
+          <td>wrter1</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="chk" /></td>
+          <td>title2</td>
+          <td>wrter2</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="chk" /></td>
+          <td>title3</td>
+          <td>wrter3</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="chk" /></td>
+          <td>title4</td>
+          <td>wrter4</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="chk" /></td>
+          <td>title5</td>
+          <td>wrter5</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
